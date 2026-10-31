@@ -91,6 +91,55 @@
                 }
                 .menu > a { display: block; text-align: left; }
             }
+            .nav .wrap { position: relative; }
+            .menu-toggle {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                clip-path: inset(50%);
+            }
+            .burger {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                margin-left: auto;
+                border: 1px solid rgba(0, 0, 0, .16);
+                border-radius: 8px;
+                background: #fff;
+                color: inherit;
+                cursor: pointer;
+            }
+            .burger:focus-visible, .menu-toggle:focus-visible ~ .burger {
+                outline: 3px solid #d88a24;
+                outline-offset: 3px;
+            }
+            .menu {
+                display: none;
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                z-index: 20;
+                width: min(260px, calc(100vw - 32px));
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                padding: 10px;
+                border: 1px solid rgba(0, 0, 0, .12);
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
+            }
+            .menu > a { display: block; padding: 10px 12px; text-align: left; }
+            #menu-toggle:checked ~ .menu { display: flex; }
+            @media (max-width: 760px) {
+                .nav .wrap { justify-content: space-between; }
+                .menu { min-width: 200px; }
+            }
         </style>
     </head>
 
@@ -117,6 +166,7 @@
     <header class="nav">
         <div class="wrap">
             <a href="index.html" class="logo"><span class="mark"><svg class="icon"><use href="#i-frame"/></svg></span>Anthony metals</a>
+            <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Toggle navigation menu">
             <nav class="menu" id="menu">
                 <a href="index.html" class="active">Home</a>
                 <a href="index.html#services">Services</a>
@@ -124,7 +174,7 @@
                 <a href="gallery.html">Gallery</a>
                 <a href="index.html#contact" class="btn btn-primary">Get a Quatation</a>
             </nav>
-            <button class="burger" id="burger" aria-label="Menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+            <label class="burger" for="menu-toggle" aria-label="Menu"><svg class="icon"><use href="#i-menu"/></svg></label>
         </div>
     </header>
 
