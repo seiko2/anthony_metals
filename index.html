@@ -74,6 +74,23 @@
                 .slider-track > .card, .slider-track > .step { flex-basis: 100%; }
                 footer .wrap { flex-direction: column; }
             }
+            @media (max-width: 760px) {
+                .nav .wrap { position: relative; }
+                .burger { display: inline-flex; margin-left: auto; }
+                .menu {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    z-index: 20;
+                    width: max-content;
+                    min-width: 180px;
+                    flex-direction: column;
+                    align-items: stretch;
+                    justify-content: flex-start;
+                    gap: 0;
+                }
+                .menu > a { display: block; text-align: left; }
+            }
         </style>
     </head>
 
